@@ -21,11 +21,11 @@
 	</properties>
 
 	<dependencies>
-	<dependency>
+		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-eureka-server</artifactId>
-	</dependency>
-			<dependency>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
@@ -35,7 +35,7 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-		<dependencyManagement>
+	<dependencyManagement>
 		<dependencies>
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
@@ -46,4 +46,24 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+<!-- build标签下的内容，是打包后的jar包可以通过 java-jar 命令运行 -->
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<!--这里写上main方法所在类的路径 -->
+				<configuration>
+					<mainClass>com.hong.eureka.EurekaServerApplication</mainClass>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>
