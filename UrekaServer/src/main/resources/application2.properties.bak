@@ -1,6 +1,6 @@
+# this is for single server
 spring.application.name=my-eureka
-#multi servers dont need port here 
-#server.port=8761
+server.port=8761
 eureka.instance.hostname=localhost
 # dont need to register to itself
 eureka.client.register-with-eureka=false
@@ -9,5 +9,3 @@ eureka.client.fetch-registry=false
 security.basic.enabled=true
 security.user.name=root
 security.user.password=admin
-spring.profiles.active=master
-eureka.server.enable-self-preservation=false
